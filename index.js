@@ -298,3 +298,8 @@ return result;
       sum += 5;  
     }
     console.log(addFive)
+    
+    function addFive() {
+      sum += 5;  
+    }
+    console.log(addFive)
