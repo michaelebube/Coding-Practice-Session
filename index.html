@@ -714,7 +714,18 @@ function nextInLine(arr, item) {
               catName = "Oliver";
               quote = catName + "says meow"
             }
-            
+
+            /* Compare Scope of Var and Let Keywords */
+            function checkScope() {
+              "use strict"
+              //let is = "function scope";
+              if (true) {
+                let is = "block scope";
+                console.log("Block scope i is: ", is)
+              }
+              console.log("Function scope i is: ", is)
+            }
+            checkScope()
 
 
 
