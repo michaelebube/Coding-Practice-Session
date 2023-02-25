@@ -1038,5 +1038,125 @@ return result;
 
               console.log(getTempOfTmrw(AVG_TEMPERATURES));
 
+              /*  Destructuring Assignment with nested Objects */
+              const LOCAL_FORECAST = {
+                today : { min : 72, max : 83},
+                tomorrow: { min : 73.3, max : 84.6}
+              };
+              function getMaxOfTmrw (forecast) {
+                "use strict"
+
+                const {tomorrow : {max : maxOfTomorrow}} = forecast;
+
+                return maxOfTomorrow
+              }
+              console.log(getMaxOfTmrw(LOCAL_FORECAST));
+
+              /*  Destructuring Assignment to Assign Variables from Arrays */
+              const [z, x, , y] =[1, 2, 3, 4, 5, 6];
+              console.log(z,x,y)
+
+              let j = 8, k = 6;
+              (() => {
+                "use strict"
+                [j, k] = [k, j]
+              }) ();
+              console.log(j);
+              console.log(k);
+
+              /* Use Destructuring Assignment with Rest Operator */
+              const source = [1, 2, 3 ,4, 5, 6, 7, 8, 9, 10];
+              function removeFirstTwo(list) {
+                const [ , , ...arr] = list;
+              return arr
+              }
+              const arr = removeFirstTwo(source)
+              console.log(arr);
+              console.log(source)
+
+              /* Use Destructuring Assignment to Pass an Object as a Functions Parameter */
+              const stats = {
+                max: 56.78,
+                standard_deviation: 4.34,
+                median: 34.56,
+                mode: 23.87,
+                min: -0.75,
+                average: 35.85
+              };
+              const half = (function() {
+                //return function half(stats) 
+                return function half({max, min}) {
+                  return (max + min) /2.0;
+                }
+
+              }) ();
+              console.log(stats)
+              console.log(half(stats));
+
+              /* Create strings using Template Literals i.e using backticks which have various advantages */
+              const person = {
+                name: "Zodiac Hasbro",
+                age: 56
+              }
+
+              const greeting = `Hello, my name is ${person.name}!
+              I am ${person.age} years old.`;
+              console.log(greeting)
+
+              /* Write Concise Object Literal Declarations using Simple Fields */
+              const createPerson = (name, age, gender) => ({ name, age, gender });
+
+                /* return {
+                  name: name,
+                  age: age,
+                  gender: gender
+                }; */
+
+              
+              console.log(createPerson("Zodiac Hasbro", 56, "male"));
+
+              /* Write Concise Declarative Functions */
+              const bicycle = {
+                gear: 2,
+                setGear(newGear) {
+                  "use strict"
+                  this.gear = newGear;
+                }
+              };
+              bicycle.setGear(3);
+              console.log(bicycle.gear);  
+
+              /* Use class Syntax to Define a Constructor Function */
+              //var Spaceshuttle = function(targetPlanet)
+              class SpaceShuttle {
+                constructor(targetPlanet) {
+                  this.targetPlanet = targetPlanet;
+                }
+              } 
+              var zeus = new SpaceShuttle('Jupiter');
+              console.log(zeus.targetPlanet)
+
+              /* Use getters and setters to control access to an object  */
+              function makeClass() {
+                class Thermostat {
+                  constructor(temp) {
+                    this._temp = 5/9 * (temp - 32);
+                  }
+                  get temperature() {
+                    return this._temp;
+                  }
+                  set temperature(updatedTemp) {
+                    this._temp = updatedTemp;
+                  }
+                }
+                return Thermostat;
+              }
+              const Thermostat = makeClass();
+              const thermos = new Thermostat(76);
+              let temp = thermos.temperature;
+              thermos.temperature = 26;
+              temp = thermos.temperature
+              console.log(temp)
+
 
 
