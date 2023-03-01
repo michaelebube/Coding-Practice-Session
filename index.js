@@ -184,7 +184,7 @@ var lastLetterOfFirstName = firstName[firstName.length - 1];
 function wordBlanks(myNoun, myAdjective, myVerb, myAdverb){
 
 var result = "";
-result += "The " + myAdjective + myNoun + myVerb + " to the store " + myAdverb;
+result += "The " + myAdjective + " " + myNoun + " " + myVerb + " to the store " + myAdverb;
 return result;
   }
   console.log(wordBlanks("dog", "big", "ran", "quickly"));
@@ -303,3 +303,107 @@ return result;
       sum += 5;  
     }
     console.log(addFive)
+
+    /* Assignment with a Returned Value */
+    var changed = 0;
+
+    function change(num) {
+      return (num + 5) / 3
+    }
+    changed = change(10)
+
+    /* Stand in Line */
+    function nextInLine(arr, item) {
+      arr.push(item)
+      return arr.shift();
+    }
+    var testArr =[1,2,3,4,5]
+
+    console.log("Before:" + JSON.stringify(testArr));
+    console.log(nextInLine(testArr, 6));
+    console.log("After:" + JSON.stringify(testArr))
+
+    /* Boolean Values */
+    function welcomeToBoolean(){
+      return true
+    }
+
+    /* Use Conditional Logic with If Statement */
+    function ourTrueorFalse(isItTrue){
+      if(isItTrue) {
+        return "Yes, it's true";
+      }
+      return "No, it's false"; 
+    }
+    console.log(ourTrueorFalse(true))
+
+    /* Comparison with Equality Operator */
+    function testEqual(val) {
+      if (val == 12) {
+        return "Equal"
+      }
+      return "Not Equal"
+    }
+
+    console.log(testEqual(10));
+
+     /* Comparison with Strict Equality Operator */
+     function testStrict(val) {
+      if (val === 7) {
+        return "Equal";
+      }
+      return "Not Equal";
+    }
+    console.log(testStrict(7));
+
+    /* 
+    3 === 3
+    3 === '3' will not equal for strict equality operator but will equal for equality operator(==)
+    */
+
+    /* Practice Comparing Different Values with both Strict Equality and Equality Operators */
+    function compareEquality(a, b) {
+      if (a == b) {
+        return "Equal"
+      }
+      return "Not Equal"
+    }
+    console.log(compareEquality(10, "10"))
+
+    function compareEquality(a, b) {
+      if (a === b) {
+        return "Equal";
+      }
+      return "Not Equal";
+    }
+    console.log(compareEquality(10, "10"));
+
+    /* Comparison with the inequality operator */
+    function testNotEqual(val) {
+      if (val != 99) {
+        return "Not Equal"
+      }
+      return "Equal"
+       }
+        console.log(testNotEqual(10))
+
+         /* Comparison with the strict inequality operator */
+         function testStrictNotEqual(val) {
+          if (val !== "17") {
+            return "Not Equal";
+          }
+          return "Equal";
+           }
+            console.log(testStrictNotEqual("10"))
+
+            /* Comparison with the logical and operator */
+         function testGreaterThan(val) {
+          if (val > 100) {
+            return "Over 100";
+          }
+          if (val > 10) {
+            return "Over 10";
+          }
+          return "10 or Under";
+           }
+            console.log(testGreaterThan("10"))
